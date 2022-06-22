@@ -35,4 +35,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/courses', [CourseController::class, 'index']);
+Route::controller(CourseController::class)->group(function () {
+    Route::get('/courses', 'index')->name('courses.index');
+});
+
