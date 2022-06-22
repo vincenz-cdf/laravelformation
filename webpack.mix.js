@@ -18,6 +18,8 @@ mix.js('resources/js/app.js', 'public/js').vue()
     .alias({
         '@': 'resources/js',
     });
+    
+mix.browserSync('http://localhost:8000/');
 
 if (mix.inProduction()) {
     mix.version();
