@@ -48,16 +48,19 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(5)->create();
 
-        for($i=1;$i<=10;$i++)
-        {
-            Course::create([
-                'title' => 'A0'.$i,
-                'description' => $this->faker->paragraphs(3, true),
-                'user_id' => User::all()->random()->id
-            ]);
-        }
+        Course::create([
+            'title' => 'Guide Minecraft',
+            'description' => 'Vous voulez en savoir plus sur Minecraft ?
+            En vous partageant mon aventure, je vous explique toutes les bases pour survivre et prospérer dans Minecraft : artisanat, exploration, construction, mods et multijoueur...',
+            'user_id' => User::all()->random()->id
+        ]);
 
-        for($i=1;$i<=20;$i++)
+        $video_urls = [
+            'https://www.youtube.com/embed/sh6mkiL6QzE',
+            'https://www.youtube.com/embed/MC-ciF0uVrU'
+        ];
+
+        for($i=1;$i<=2;$i++)
         {
             if($i <= 9)
             {
@@ -71,8 +74,8 @@ class DatabaseSeeder extends Seeder
             Video::create([
                 'title' => $title,
                 'description' => $this->faker->paragraphs(3, true),
-                'video_url' => 'test.com/'.rand(10,255),
-                'course_id' => Course::all()->random()->id
+                'video_url' => $video_urls[$i-1],
+                'course_id' => Course::all()->first()->id
             ]);
         }
     }
