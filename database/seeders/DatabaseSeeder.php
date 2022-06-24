@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
             Video::create([
                 'title' => $title,
                 'description' => $this->faker->paragraphs(3, true),
-                'video_url' => 'test.com' . rand(10,255),
+                'video_url' => 'test.com/'.rand(10,255),
                 'course_id' => Course::all()->random()->id
             ]);
         }

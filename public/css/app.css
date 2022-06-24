@@ -1189,6 +1189,9 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-screen {
+  height: 100vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1900,6 +1903,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
+.hover\:text-indigo-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
+}
 .focus\:z-10:focus {
   z-index: 10;
 }
@@ -1962,6 +1969,10 @@ select {
 .focus\:text-gray-500:focus {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+.focus\:text-indigo-500:focus {
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
