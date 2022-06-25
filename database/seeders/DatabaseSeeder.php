@@ -6,8 +6,10 @@ use App\Models\User;
 use Faker\Generator;
 use App\Models\Video;
 use App\Models\Course;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Container\Container;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
@@ -47,6 +49,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(5)->create();
+
+        User::create([
+            'name' => 'alphatester',
+            'email' => 'a@m.fr',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12'),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
+            'name' => 'betatesteur',
+            'email' => 'b@m.fr',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12'),
+            'remember_token' => Str::random(10),
+        ]);
 
         Course::create([
             'title' => 'Guide Minecraft',

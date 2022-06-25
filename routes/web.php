@@ -33,6 +33,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::controller(CourseController::class)->group(function () {
         Route::get('/courses', 'index')->name('courses.index');
         Route::get('/courses/{id}', 'show')->name('courses.show');
+        Route::post('/toggleProgress', 'toggleProgress')->name('courses.toggle');
     });
 });
 

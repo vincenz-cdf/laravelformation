@@ -12,10 +12,13 @@
 
             <div class="mt-6">
                 <ul v-for="(video, index) in this.courseShow.videos" v-bind:key="video.id">
-                    <li class="mt-3">
-                        Episode n°{{ index + 1 }} - {{ video.title }}
-                        <button class="text-gray-500 hover:text-indigo-500 focus:outline-none" @click="switchVideo(index)">
-                        Voir l'épisode</button>
+                    <li class="mt-3 flex justify-between items-center">
+                        <div>
+                            Video n°{{ index + 1 }} - {{ video.title }}
+                            <button class="text-gray-500 hover:text-indigo-500 focus:outline-none" @click="switchVideo(index)">
+                            Voir l'épisode</button>
+                        </div>
+                        <progress-button :video-id = 'video.id' :watched-videos="watched" />
                     </li>
                 </ul>
             </div>
@@ -25,13 +28,15 @@
 
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import ProgressButton from './ProgressButton.vue';
 
 export default{
     components: {
-        AppLayout
+        AppLayout,
+        ProgressButton
     },
 
-    props: ['course'],
+    props: ['course', 'watched'],
 
     data() {
         return {
