@@ -32,7 +32,7 @@ export default {
         },
 
         isWatchedVideo() {
-            return this.isWatched.find(element => video.id === this.videoId) ? true : false;
+            return this.watchedVids.find(video => video.id === this.videoId) ? true : false;
         }
     },
 

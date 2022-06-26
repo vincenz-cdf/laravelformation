@@ -9,7 +9,9 @@
             autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
             </iframe>
             <div class="text-sm text-gray-500"> {{this.courseShow.videos[this.currentKey].description}} </div>
-
+            <div class="py-6">
+                <progress-bar :watched-videos="watched" :videos="course.videos"/>
+            </div>
             <div class="mt-6">
                 <ul v-for="(video, index) in this.courseShow.videos" v-bind:key="video.id">
                     <li class="mt-3 flex justify-between items-center">
@@ -18,7 +20,7 @@
                             <button class="text-gray-500 hover:text-indigo-500 focus:outline-none" @click="switchVideo(index)">
                             Voir l'épisode</button>
                         </div>
-                        <progress-button :video-id = 'video.id' :watched-videos="watched" />
+                        <progress-button :video-id='video.id' :watched-videos="watched" />
                     </li>
                 </ul>
             </div>
@@ -29,11 +31,13 @@
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ProgressButton from './ProgressButton.vue';
+import ProgressBar from './ProgressBar.vue';
 
 export default{
     components: {
         AppLayout,
-        ProgressButton
+        ProgressButton,
+        ProgressBar
     },
 
     props: ['course', 'watched'],
